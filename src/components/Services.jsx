@@ -19,7 +19,7 @@ const Services = () => {
       title: "Leadership Branding",
       description: "We help leaders build a powerful public identity through strategic messaging, storytelling, and digital positioning to strengthen their image among citizens.",
       icon: "👑",
-      accent: "var(--accent)"
+      accent: "var(--secondary)"
     },
     {
       title: "Constituency Strategy & Ground Planning",
@@ -37,7 +37,7 @@ const Services = () => {
       title: "Content Creation & Political Messaging",
       description: "Our team creates impactful content including campaign messages, videos, graphics, and speeches that clearly communicate the leader’s vision.",
       icon: "✍️",
-      accent: "var(--accent)"
+      accent: "var(--primary)"
     },
     {
       title: "Business Digital Marketing",

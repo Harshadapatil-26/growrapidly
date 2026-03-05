@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="social-grid">
               <a href="#" style={{ backgroundColor: 'var(--secondary)', color: 'white' }}>LN</a>
               <a href="#" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>TW</a>
-              <a href="#" style={{ backgroundColor: 'var(--accent)', color: 'white' }}>YT</a>
+              <a href="#" style={{ backgroundColor: 'var(--primary-dark)', color: 'white' }}>YT</a>
             </div>
           </div>
 

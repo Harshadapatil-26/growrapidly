@@ -1,18 +1,22 @@
 :root {
-  /* Colors from Official Logo */
-  --primary: #66BB1B;
-  /* Growth Green */
-  --primary-dark: #4A8A14;
+  /* ===== BRAND COLORS (from Official Logo) ===== */
+  --primary: #57B000;
+  /* Brand Green  */
+  --primary-dark: #3E8000;
+  /* Darker Green */
   --secondary: #2897C5;
   /* Strategic Blue */
-  --accent: #F77E1E;
-  /* Campaign Orange */
+  --secondary-dark: #1A6A90;
+  /* Darker Blue */
 
+  /* ===== NEUTRALS ===== */
   --text: #1E293B;
   --text-muted: #64748B;
   --white: #FFFFFF;
-  --light-bg: #F8FAFC;
-  --border: #E2E8F0;
+  --light-bg: #F0F7EC;
+  /* Very light green tint — stays on-brand */
+  --border: #D9EAD3;
+  /* Light green-tinted border */
 
   --font-main: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
@@ -24,6 +28,7 @@
   --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 
 * {
   margin: 0;

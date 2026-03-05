@@ -15,8 +15,11 @@ const CTA = () => {
       <style>{`
         .final-cta {
           padding: 160px 0;
-          background-color: #0F0F0F;
+          background-color: var(--secondary);
           text-align: center;
+        }
+        .final-cta h2 {
+          color: var(--white);
         }
         .cta-box h2 {
           font-size: 4rem;

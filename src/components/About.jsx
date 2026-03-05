@@ -30,7 +30,7 @@ const About = () => {
               <div className="card-header">
                 <div className="brand-dot green"></div>
                 <div className="brand-dot blue"></div>
-                <div className="brand-dot orange"></div>
+                <div className="brand-dot teal"></div>
               </div>
               <div className="card-content">
                 <h3>Our Core Mission</h3>
@@ -103,7 +103,7 @@ const About = () => {
         }
         .brand-dot.green { background: var(--primary); }
         .brand-dot.blue { background: var(--secondary); }
-        .brand-dot.orange { background: var(--accent); }
+        .brand-dot.teal { background: var(--secondary-dark, #1A6A90); }
         
         .card-content h3 {
           font-size: 1.5rem;

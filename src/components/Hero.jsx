@@ -51,7 +51,7 @@ const Hero = () => {
 
       <style>{`
         .hero-modern {
-          background-color: #F5F5F5;
+          background-color: var(--light-bg);
           min-height: 100vh;
           display: flex;
           align-items: center;
@@ -72,7 +72,7 @@ const Hero = () => {
         .hero-headline {
           font-size: clamp(2.5rem, 5vw, 4.5rem);
           line-height: 1.1;
-          color: #111111;
+          color: var(--text);
           font-weight: 800;
           margin-bottom: 32px;
           letter-spacing: -0.02em;
@@ -84,7 +84,7 @@ const Hero = () => {
 
         .hero-subheadline {
           font-size: 1.25rem;
-          color: #444444;
+          color: var(--text-muted);
           line-height: 1.6;
           max-width: 600px;
           margin-bottom: 48px;
@@ -96,8 +96,8 @@ const Hero = () => {
         }
 
         .btn-hero-primary {
-          background-color: #57B000;
-          color: white;
+          background-color: var(--primary);
+          color: var(--white);
           padding: 18px 36px;
           border-radius: 8px;
           text-decoration: none;
@@ -107,26 +107,26 @@ const Hero = () => {
         }
 
         .btn-hero-primary:hover {
-          background-color: #FF6A00;
+          background-color: var(--secondary);
           transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(255, 106, 0, 0.3);
+          box-shadow: 0 15px 30px rgba(40, 151, 197, 0.3);
         }
 
         .btn-hero-secondary {
           background-color: transparent;
-          color: #111111;
+          color: var(--text);
           padding: 18px 36px;
           border-radius: 8px;
           text-decoration: none;
           font-weight: 700;
-          border: 2px solid #DDDDDD;
+          border: 2px solid var(--border);
           transition: all 0.3s ease;
         }
 
         .btn-hero-secondary:hover {
-          background-color: #111111;
-          color: white;
-          border-color: #111111;
+          background-color: var(--secondary);
+          color: var(--white);
+          border-color: var(--secondary);
         }
 
         .hero-visual-system {

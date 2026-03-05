@@ -1,34 +1,34 @@
 import React from 'react'
 
 const WhyChooseUs = () => {
-    const points = [
-        { title: "Strategic Precision", desc: "Data-driven insights to find and win the voters that matter." },
-        { title: "Native Mobilization", desc: "Tools built to turn online energy into offline action." },
-        { title: "Absolute Scale", desc: "Enterprise infrastructure that grows with your campaign's ambition." }
-    ]
+  const points = [
+    { title: "Strategic Precision", desc: "Data-driven insights to find and win the voters that matter." },
+    { title: "Native Mobilization", desc: "Tools built to turn online energy into offline action." },
+    { title: "Absolute Scale", desc: "Enterprise infrastructure that grows with your campaign's ambition." }
+  ]
 
-    return (
-        <section id="why-us" className="why-section">
-            <div className="container">
-                <div className="why-grid reveal">
-                    <div className="why-header">
-                        <span className="section-tag">Powering Winners</span>
-                        <h2>Why leaders choose Grow Rapidly</h2>
-                    </div>
-                    <div className="why-points">
-                        {points.map((p, i) => (
-                            <div key={i} className="why-point">
-                                <div className="check-icon">✓</div>
-                                <div>
-                                    <h3>{p.title}</h3>
-                                    <p>{p.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+  return (
+    <section id="why-us" className="why-section">
+      <div className="container">
+        <div className="why-grid reveal">
+          <div className="why-header">
+            <span className="section-tag">Powering Winners</span>
+            <h2>Why leaders choose Grow Rapidly</h2>
+          </div>
+          <div className="why-points">
+            {points.map((p, i) => (
+              <div key={i} className="why-point">
+                <div className="check-icon">✓</div>
+                <div>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
                 </div>
-            </div>
-            <style>{`
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <style>{`
         .why-section {
           background-color: var(--white);
           padding: 100px 0;
@@ -53,7 +53,7 @@ const WhyChooseUs = () => {
         .check-icon {
           width: 32px;
           height: 32px;
-          background: rgba(87, 176, 0, 0.1);
+          background: rgba(87, 176, 0, 0.08);
           color: var(--primary);
           border-radius: 50%;
           display: flex;
@@ -74,8 +74,8 @@ const WhyChooseUs = () => {
           .why-grid { grid-template-columns: 1fr; }
         }
       `}</style>
-        </section>
-    )
+    </section>
+  )
 }
 
 export default WhyChooseUs
