@@ -1,69 +1,71 @@
-import React from 'react'
+import React from 'react';
 
 const Impact = () => {
-  const stats = [
-    { label: "Campaign Growth", val: "145%", color: "var(--primary)" },
-    { label: "Voters Engaged", val: "25M+", color: "var(--secondary)" },
-    { label: "Engagement Rate", val: "68%", color: "var(--accent)" },
-    { label: "Success Ratio", val: "92%", color: "var(--primary)" }
-  ]
-
   return (
-    <section id="impact" className="impact-stats-section">
+    <section id="impact" className="impact bg-white premium-grain">
+      <div className="impact-image-overlay">
+        <img src="/images/backgrounds/impact_bg.png" alt="Indian Electoral Strength" />
+      </div>
       <div className="container">
-        <div className="impact-visual reveal" style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <img src="/images/logo.png" alt="Growth Graph" style={{ maxWidth: '400px', width: '100%', borderRadius: '12px', border: '1px solid var(--border)' }} />
-        </div>
-        <div className="stats-grid">
-          {stats.map((stat, index) => (
-            <div key={index} className="stat-node reveal">
-              <span className="stat-value" style={{ color: stat.color }}>{stat.val}</span>
-              <span className="stat-label">{stat.label}</span>
-            </div>
-          ))}
+        <div className="impact-center reveal">
+          <h2 className="display-title">
+            LOCAL <span className="text-green">INSTINCT.</span><br />
+            NATIONAL <span className="text-blue">MUSCLE.</span>
+          </h2>
+          <p className="text-black opacity-70 impact-lead">
+            We've spent a decade in the grime of ground politics and the velocity of digital war rooms.
+            We know exactly how to move the needle where it matters most.
+          </p>
+          <div className="impact-cta">
+            <a href="#contact" className="btn btn-black">INITIATE OPERATIONS</a>
+          </div>
         </div>
       </div>
-      <style>{`
-        .impact-stats-section {
-          background-color: var(--white);
-          padding: 80px 0;
-          border-top: 1px solid var(--border);
-          border-bottom: 1px solid var(--border);
-        }
-        .stats-grid {
-          display: flex;
-          justify-content: space-around;
-          flex-wrap: wrap;
-          gap: 40px;
-        }
-        .stat-node {
-          text-align: center;
-        }
-        .stat-value {
-          display: block;
-          font-family: var(--font-heading);
-          font-size: 3.5rem;
-          font-weight: 800;
-          line-height: 1;
-          margin-bottom: 8px;
-        }
-        .stat-label {
-          font-size: 0.875rem;
-          font-weight: 700;
-          text-transform: uppercase;
-          color: var(--text-muted);
-          letter-spacing: 0.1em;
-        }
-        @media (max-width: 768px) {
-          .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        }
-        @media (max-width: 480px) {
-          .stats-grid { grid-template-columns: 1fr; gap: 40px; }
-          .stat-value { font-size: 3rem; }
-        }
-      `}</style>
-    </section>
-  )
-}
 
-export default Impact
+      <style>{`
+                .impact {
+                    padding: 200px 0;
+                    text-align: center;
+                    position: relative;
+                    background: var(--white);
+                    overflow: hidden;
+                }
+
+                .impact-image-overlay {
+                    position: absolute;
+                    inset: 0;
+                    z-index: 1;
+                }
+
+                .impact-image-overlay img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: 0.08;
+                    filter: grayscale(1);
+                }
+
+                .impact-center {
+                    position: relative;
+                    z-index: 10;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+
+                .impact-lead {
+                    font-size: 1.5rem;
+                    margin: 40px auto;
+                    max-width: 700px;
+                    line-height: 1.6;
+                }
+
+                @media (max-width: 768px) {
+                    .impact { padding: 120px 0; }
+                    .impact-lead { font-size: 1.25rem; }
+                }
+            `}</style>
+    </section>
+  );
+};
+
+export default Impact;

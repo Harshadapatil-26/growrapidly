@@ -1,150 +1,131 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../../images/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="site-footer">
+    <footer className="footer bg-white premium-grain">
       <div className="container">
-        <div className="footer-top">
-          <div className="footer-info">
-            <div className="logo footer-logo">
-              <img src="/images/logo.png" alt="Grow Rapidly Logo" className="logo-img" />
-              <span>&reg; GROW RAPIDLY</span>
-            </div>
-            <p>Strategy. Communication. Growth. <br />The platform for modern political leadership.</p>
-            <div className="social-grid">
-              <a href="#" style={{ backgroundColor: 'var(--secondary)', color: 'white' }}>LN</a>
-              <a href="#" style={{ backgroundColor: 'var(--primary)', color: 'white' }}>TW</a>
-              <a href="https://wa.me/919270010816" style={{ backgroundColor: '#25D366', color: 'white' }}>WA</a>
-              <a href="#" style={{ backgroundColor: 'var(--accent)', color: 'white' }}>YT</a>
-            </div>
-          </div>
-
+        <div className="footer-main">
+          <h2 className="display-title">READY TO <span className="text-green">WIN?</span></h2>
           <div className="footer-links-grid">
-            <div className="link-col">
-              <h4>Services</h4>
-              <a href="#services">Digital Campaigns</a>
-              <a href="#services">Leadership Branding</a>
-              <a href="#services">Ground Planning</a>
-              <a href="#services">Content Creation</a>
+            <div className="f-col">
+              <span className="col-tag text-green">Strategize</span>
+              <a href="/#about">The Winning Anyway Mindset</a>
+              <Link to="/services">Battleground Intelligence</Link>
+              <a href="/#strategy">The Blueprint</a>
             </div>
-            <div className="link-col">
-              <h4>Company</h4>
-              <a href="#about">About Us</a>
-              <a href="mailto:growrapidaly@gmail.com">Contact</a>
+            <div className="f-col">
+              <span className="col-tag text-blue">Connect</span>
+              <a href="#">LinkedIn</a>
+              <a href="#">Twitter</a>
+              <a href="#">Instagram</a>
+            </div>
+            <div className="f-col">
+              <span className="col-tag text-orange">Engage</span>
+              <a href="#contact">Contact Strategy</a>
+              <a href="/#why-us">Newsletter Brief</a>
+              <a href="#">Privacy Systems</a>
             </div>
           </div>
-        </div>
 
-        <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Grow Rapidly Strategic Systems. All rights reserved.</p>
-          <div className="legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+          <div className="footer-bottom-line">
+            <div className="f-logo">
+              <img src={logo} alt="Grow Rapidly" />
+              <span className="text-black">GROW RAPIDLY</span>
+            </div>
+            <p className="copyright opacity-70 text-black">© 2026 GROW RAPIDLY STRATEGIC SYSTEMS. BUILT TO WIN.</p>
           </div>
         </div>
       </div>
-      <style>{`
-        .site-footer {
-          padding: 100px 0 60px;
-          background: var(--white);
-          border-top: 1px solid var(--border);
-        }
-        .footer-top {
-          display: grid;
-          grid-template-columns: 1fr 2fr;
-          gap: 100px;
-          margin-bottom: 80px;
-        }
-        .footer-logo {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          font-weight: 900;
-          font-size: 1.1rem;
-          color: var(--text);
-          margin-bottom: 24px;
-        }
-        .logo-img {
-          height: 32px;
-          width: auto;
-        }
-        .site-footer p {
-          color: var(--text-muted);
-          font-size: 0.9375rem;
-          margin-bottom: 32px;
-        }
-        .social-grid {
-          display: flex;
-          gap: 16px;
-        }
-        .social-grid a {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-decoration: none;
-          font-weight: 700;
-          font-size: 0.75rem;
-          transition: var(--transition);
-        }
-        .social-grid a:hover {
-          transform: translateY(-3px);
-          filter: brightness(1.1);
-        }
-        .footer-links-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 40px;
-        }
-        .link-col h4 {
-          font-size: 0.875rem;
-          text-transform: uppercase;
-          margin-bottom: 24px;
-          color: var(--text);
-          border-left: 3px solid var(--primary);
-          padding-left: 12px;
-        }
-        .link-col a {
-          display: block;
-          text-decoration: none;
-          color: var(--text-muted);
-          font-size: 0.875rem;
-          margin-bottom: 12px;
-          transition: var(--transition);
-        }
-        .link-col a:hover {
-          color: var(--primary);
-        }
-        .footer-bottom {
-          padding-top: 40px;
-          border-top: 1px solid var(--border);
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          font-size: 0.8125rem;
-          color: var(--text-muted);
-        }
-        .legal {
-          display: flex;
-          gap: 24px;
-        }
-        .legal a {
-          text-decoration: none;
-          color: var(--text-muted);
-        }
-        @media (max-width: 900px) {
-          .footer-top { grid-template-columns: 1fr; gap: 60px; }
-          .footer-links-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 480px) {
-          .footer-links-grid { grid-template-columns: 1fr; gap: 40px; }
-          .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-        }
-      `}</style>
-    </footer>
-  )
-}
 
-export default Footer
+      <style>{`
+                .footer {
+                    padding: 140px 0 60px;
+                    border-top: 1px solid rgba(0,0,0,0.05);
+                    background: var(--white);
+                }
+
+                .footer-main {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .footer-links-grid {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 100px;
+                    margin-top: 100px;
+                    width: 100%;
+                    max-width: 1000px;
+                }
+
+                .col-tag {
+                    display: block;
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2rem;
+                    margin-bottom: 2rem;
+                }
+
+                .f-col a {
+                    display: block;
+                    color: var(--black);
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    margin-bottom: 1rem;
+                    opacity: 0.7;
+                    transition: var(--transition);
+                }
+
+                .f-col a:hover {
+                    opacity: 1;
+                    color: var(--brand-green);
+                }
+
+                .footer-bottom-line {
+                    margin-top: 140px;
+                    width: 100%;
+                    padding-top: 40px;
+                    border-top: 1px solid rgba(0,0,0,0.1);
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .f-logo {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                }
+
+                .f-logo img {
+                    height: 30px;
+                }
+
+                .f-logo span {
+                    font-weight: 900;
+                    letter-spacing: 0.1em;
+                }
+
+                .copyright {
+                    font-size: 0.75rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.05em;
+                }
+
+                @media (max-width: 768px) {
+                    .footer-links-grid { grid-template-columns: 1fr; gap: 60px; }
+                    .footer-bottom-line { flex-direction: column; gap: 30px; }
+                }
+            `}</style>
+    </footer>
+  );
+};
+
+export default Footer;

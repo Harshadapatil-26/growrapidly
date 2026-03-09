@@ -1,84 +1,83 @@
-import React from 'react'
+import React from 'react';
 
 const WhyChooseUs = () => {
-  const points = [
-    { title: "Strategic Precision", desc: "Data-driven insights to find and win the voters that matter.", color: "var(--primary)", bg: "rgba(87, 176, 0, 0.1)" },
-    { title: "Native Mobilization", desc: "Tools built to turn online energy into offline action.", color: "var(--secondary)", bg: "rgba(40, 151, 197, 0.1)" },
-    { title: "Absolute Scale", desc: "Enterprise infrastructure that grows with your campaign's ambition.", color: "var(--accent)", bg: "rgba(247, 126, 30, 0.1)" }
-  ]
-
   return (
-    <section id="why-us" className="why-section">
+    <section id="why-us" className="advantage-section bg-light premium-grain">
       <div className="container">
-        <div className="why-grid reveal">
-          <div className="why-header">
-            <span className="section-tag">Powering Winners</span>
-            <h2>Why leaders choose Grow Rapidly</h2>
+        <div className="advantage-top reveal">
+          <span className="section-tag text-blue">Operational Excellence</span>
+          <h2 className="section-head">STRATEGIC <span className="text-orange">SUPPORT.</span></h2>
+        </div>
+        <div className="advantage-grid reveal">
+          <div className="support-card shadow-premium">
+            <span className="card-icon text-green">⊚</span>
+            <h3 className="card-title text-black">REAL-TIME MONITORING</h3>
+            <p className="card-desc opacity-70">
+              Our war rooms remain operational 24/7, providing continuous surveillance of the digital and ground-level electoral landscapes.
+            </p>
           </div>
-          <div className="why-points">
-            {points.map((p, i) => (
-              <div key={i} className="why-point">
-                <div className="check-icon" style={{ color: p.color, background: p.bg }}>✓</div>
-                <div>
-                  <h3>{p.title}</h3>
-                  <p>{p.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="support-card shadow-premium">
+            <span className="card-icon text-blue">⊕</span>
+            <h3 className="card-title text-black">STRATEGY OPTIMIZATION</h3>
+            <p className="card-desc opacity-70">
+              We utilize high-velocity data analytics to refine campaign messaging and tactical positioning in response to shifting public sentiment.
+            </p>
           </div>
         </div>
       </div>
-      <style>{`
-        .why-section {
-          background-color: var(--white);
-          padding: 100px 0;
-        }
-        .why-grid {
-          display: grid;
-          grid-template-columns: 1fr 1.2fr;
-          gap: 80px;
-          align-items: center;
-        }
-        .why-header h2 {
-          font-size: 3rem;
-        }
-        .why-points {
-          display: grid;
-          gap: 40px;
-        }
-        .why-point {
-          display: flex;
-          gap: 24px;
-        }
-        .check-icon {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: 800;
-          flex-shrink: 0;
-        }
-        .why-point h3 {
-          font-size: 1.25rem;
-          margin-bottom: 8px;
-        }
-        .why-point p {
-          color: var(--text-muted);
-          font-size: 0.9375rem;
-        }
-        @media (max-width: 900px) {
-          .why-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
-        @media (max-width: 480px) {
-          .why-header h2 { font-size: 2rem; }
-          .why-point { flex-direction: column; gap: 16px; }
-          .check-icon { margin-bottom: 8px; }
-        }
-      `}</style>
-    </section>
-  )
-}
 
-export default WhyChooseUs
+      <style>{`
+                .advantage-section {
+                    padding: var(--section-padding) 0;
+                    position: relative;
+                    background-color: #fcfcfc;
+                    overflow: hidden;
+                    border-top: 1px solid rgba(0,0,0,0.05);
+                }
+
+                .advantage-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 30px;
+                    margin-top: 60px;
+                }
+
+                .support-card {
+                    background: var(--white);
+                    padding: 60px;
+                    border: 1px solid rgba(0,0,0,0.05);
+                    transition: var(--transition);
+                }
+
+                .support-card:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 50px 100px rgba(0,0,0,0.06);
+                }
+
+                .card-icon {
+                    font-size: 2.5rem;
+                    display: block;
+                    margin-bottom: 30px;
+                }
+
+                .card-title {
+                    font-size: 1.25rem;
+                    margin-bottom: 20px;
+                    letter-spacing: 0.05em;
+                }
+
+                .card-desc {
+                    font-size: 1rem;
+                    line-height: 1.6;
+                    max-width: 450px;
+                }
+
+                @media (max-width: 1024px) {
+                    .advantage-grid { grid-template-columns: 1fr; }
+                }
+            `}</style>
+    </section>
+  );
+};
+
+export default WhyChooseUs;

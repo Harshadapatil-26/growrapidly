@@ -1,198 +1,125 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
-    {
-      title: "Digital Campaigns & Communication",
-      description: "We design and manage comprehensive digital campaigns, ensuring your message reaches the right audience through social media, search engines, and targeted digital platforms.",
-      image: "/images/services/campaign.jpg",
-      accent: "var(--primary)"
-    },
-    {
-      title: "Leadership Branding",
-      description: "We help leaders build a powerful public identity through strategic messaging, storytelling, and digital positioning to strengthen their image among citizens.",
-      image: "/images/services/branding.jpg",
-      accent: "var(--secondary)"
-    },
-    {
-      title: "Constituency Strategy & Ground Planning",
-      description: "We create constituency-focused strategies based on local issues, voter behavior, and ground-level insights to improve public engagement.",
-      image: "/images/services/mapping.jpg",
-      accent: "var(--accent)"
-    },
-    {
-      title: "Digital Advertising Campaigns",
-      description: "We run targeted digital campaigns to reach the right audience, increase visibility, and strengthen the impact of political and business campaigns.",
-      image: "/images/services/ads.jpg",
-      accent: "var(--primary)"
-    },
-    {
-      title: "Content Creation & Political Messaging",
-      description: "Our team creates impactful content including campaign messages, videos, graphics, and speeches that clearly communicate the leader’s vision.",
-      image: "/images/services/content.png",
-      accent: "var(--secondary)"
-    },
-    {
-      title: "Business Digital Marketing",
-      description: "Along with political strategy, we provide digital marketing services for businesses including branding, social media marketing, and lead generation.",
-      image: "/images/services/business.jpg",
-      accent: "var(--accent)"
-    }
-  ]
-
-  const serviceSlugs = [
-    "political-campaign-strategy",
-    "political-social-media-management",
-    "leadership-branding",
-    "constituency-strategy-ground-planning",
-    "digital-advertising-campaigns",
-    "content-creation-political-messaging",
-    "business-digital-marketing"
+    { title: "Campaign Strategy", icon: "⊕", color: "var(--brand-green)" },
+    { title: "Social Media Management", icon: "⊚", color: "var(--brand-blue)" },
+    { title: "Leadership Branding", icon: "⊡", color: "var(--brand-orange)" },
+    { title: "Constituency Strategy", icon: "⊞", color: "var(--black)" },
+    { title: "Digital Advertising", icon: "⊠", color: "var(--brand-green)" },
+    { title: "Content Creation", icon: "⊛", color: "var(--brand-blue)" },
+    { title: "Business Marketing", icon: "⊡", color: "var(--brand-orange)" },
+    { title: "24/7 Strategic Support", icon: "⊘", color: "var(--brand-green)" },
   ];
 
   return (
-    <section id="services" className="services-section">
+    <section id="services" className="services bg-white premium-grain">
       <div className="container">
-        <div className="services-header reveal">
-          <span className="section-tag">Elite Services</span>
-          <h2>Strategic solutions designed to <br />elevate your <span className="muted">political impact</span></h2>
+        <div className="services-top reveal">
+          <span className="section-tag text-blue">Battle Tested Capabilities</span>
+          <h2 className="section-head">STRATEGIC <span className="text-orange">POWER.</span></h2>
         </div>
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <div key={index} className="service-product-card reveal">
-              <div className="card-mockup">
-                <div className="mockup-ui">
-                  <div className="ui-dot" style={{ backgroundColor: service.accent }}></div>
-                  <div className="ui-dot"></div>
-                  <div className="ui-bar"></div>
-                </div>
-                <img src={service.image} alt={service.title} className="service-img" />
-              </div>
-              <div className="card-info">
-                <h3 style={{ color: service.accent }}>{service.title}</h3>
-                <p>{service.description}</p>
-                <Link
-                  to={`/services/${serviceSlugs[index]}`}
-                  className="card-link"
-                  style={{ color: service.accent }}
-                >
-                  Explore Service →
-                </Link>
+
+        <div className="capabilities-grid reveal">
+          {services.map((item, index) => (
+            <div key={index} className="cap-card shadow-hover-lift">
+              <div className="cap-accent" style={{ background: item.color }}></div>
+              <div className="cap-body">
+                <span className="cap-icon" style={{ color: item.color }}>{item.icon}</span>
+                <h3 className="cap-name text-black">{item.title}</h3>
+                <p className="cap-desc opacity-70">Surgical implementation for national-level dominance.</p>
               </div>
             </div>
           ))}
         </div>
+
+        <div className="philosophy-strip reveal">
+          <div className="philosophy-header">
+            <span className="section-tag text-green">Strategy Philosophy</span>
+            <h2 className="display-title">WE DON'T <span className="text-blue">GUESS.</span> WE PLAN, PRESSURE, AND <span className="text-orange">EXECUTE.</span></h2>
+          </div>
+          <div className="philosophy-cta">
+            <Link to="/services" className="btn-axiom-outline">VIEW FULL CAPABILITIES</Link>
+          </div>
+        </div>
       </div>
+
       <style>{`
-        .services-section {
-          background-color: var(--light-bg);
-          padding: 80px 0 140px;
-        }
-        .services-header {
-          text-align: center;
-          margin-bottom: 80px;
-        }
-        .services-header h2 {
-          max-width: 800px;
-          margin: 0 auto;
-        }
-        .services-header .muted {
-          color: var(--text-muted);
-          font-weight: 400;
-        }
-        .mockup-ui {
-          position: absolute;
-          top: 16px;
-          left: 16px;
-          display: flex;
-          gap: 6px;
-          z-index: 2;
-          padding: 6px 10px;
-          background: rgba(255, 255, 255, 0.8);
-          backdrop-filter: blur(4px);
-          border-radius: 20px;
-          border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .ui-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: rgba(0,0,0,0.2);
-        }
-        .ui-bar {
-          width: 30px;
-          height: 8px;
-          border-radius: 4px;
-          background: rgba(0,0,0,0.1);
-        }
-        .services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 32px;
-        }
-        .service-product-card {
-          background: var(--white);
-          border-radius: 16px;
-          overflow: hidden;
-          border: 1px solid var(--border);
-          transition: var(--transition);
-        }
-        .service-product-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-        }
-        .card-mockup {
-          height: 240px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: relative;
-          border-bottom: 1px solid var(--border);
-          overflow: hidden;
-          background-color: #f8f9fa;
-        }
-        .service-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 30%;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .service-product-card:hover .service-img {
-          transform: scale(1.05);
-        }
-        .card-info {
-          padding: 32px;
-        }
-        .card-info h3 {
-          font-size: 1.25rem;
-          margin-bottom: 12px;
-          line-height: 1.35;
-        }
-        .card-info p {
-          font-size: 0.9375rem;
-          color: var(--text-muted);
-          margin-bottom: 24px;
-          line-height: 1.6;
-        }
-        .card-link {
-          text-decoration: none;
-          font-weight: 700;
-          font-size: 0.875rem;
-          transition: var(--transition);
-        }
-        .card-link:hover {
-          opacity: 0.7;
-        }
+                .services {
+                    padding: var(--section-padding) 0;
+                    border-bottom: 1px solid rgba(0,0,0,0.05);
+                }
 
-        @media (max-width: 480px) {
-          .services-grid { grid-template-columns: 1fr; }
-          .services-header h2 { font-size: 2rem; }
-        }
-      `}</style>
+                .capabilities-grid {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 30px;
+                    margin: 80px 0 120px;
+                }
+
+                .cap-card {
+                    background: #fdfdfd;
+                    border: 1px solid rgba(0,0,0,0.05);
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .cap-accent {
+                    height: 4px;
+                    width: 100%;
+                }
+
+                .cap-body {
+                    padding: 40px;
+                }
+
+                .cap-icon {
+                    font-size: 2rem;
+                    display: block;
+                    margin-bottom: 25px;
+                }
+
+                .cap-name {
+                    font-size: 1.15rem;
+                    margin-bottom: 15px;
+                    letter-spacing: 0.02em;
+                }
+
+                .cap-desc {
+                    font-size: 0.9rem;
+                    line-height: 1.6;
+                    text-transform: none;
+                }
+
+                .philosophy-strip {
+                    display: grid;
+                    grid-template-columns: 1.5fr 1fr;
+                    gap: 100px;
+                    align-items: center;
+                    padding-top: 100px;
+                    border-top: 1px solid rgba(0,0,0,0.1);
+                }
+
+                .philosophy-strip h2 {
+                    margin-top: 20px;
+                    max-width: 800px;
+                    line-height: 1.1;
+                }
+
+                @media (max-width: 1200px) {
+                    .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
+                    .philosophy-strip { grid-template-columns: 1fr; gap: 40px; }
+                }
+
+                @media (max-width: 600px) {
+                    .capabilities-grid { grid-template-columns: 1fr; }
+                }
+            `}</style>
     </section>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

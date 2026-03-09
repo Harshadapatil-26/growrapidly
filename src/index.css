@@ -1,34 +1,38 @@
 :root {
-  /* ===== BRAND COLORS (from Official Logo) ===== */
-  --primary: #57B000;
-  /* Brand Green  */
-  --primary-dark: #3E8000;
-  /* Darker Green */
-  --secondary: #2897C5;
-  /* Strategic Blue */
-  --secondary-dark: #1A6A90;
-  /* Darker Blue */
-
-  /* ===== NEUTRALS ===== */
-  --text: #1E293B;
-  --text-muted: #64748B;
+  /* ===== STRICT BRAND COLORS ===== */
+  --brand-green: #59A800;
+  --brand-blue: #2A9CC5;
+  --brand-orange: #FF6A00;
+  --black: #000000;
   --white: #FFFFFF;
-  --light-bg: #F0F7EC;
-  /* Very light green tint — stays on-brand */
-  --border: #D9EAD3;
-  /* Light green-tinted border */
 
-  --font-main: 'Inter', sans-serif;
+  /* Functional Mappings */
+  --primary: var(--brand-green);
+  --secondary: var(--brand-blue);
+  --accent: var(--brand-orange);
+  --text: var(--black);
+  --bg: var(--white);
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Outfit', sans-serif;
 
-  --header-height: 90px;
-  --container-width: 1280px;
-  --radius: 12px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Layout */
+  --header-height: 80px;
+  --container-width: 1400px;
+  --section-padding: 160px;
+  --radius-sm: 0px;
+  /* Axiom uses sharp corners */
+  --radius-md: 0px;
+  --radius-lg: 0px;
+
+  /* Effects */
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap');
 
 * {
   margin: 0;
@@ -36,18 +40,23 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-main);
   background-color: var(--white);
-  color: var(--text);
-  line-height: 1.6;
+  color: var(--black);
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 40px;
 }
 
 h1,
@@ -55,83 +64,240 @@ h2,
 h3,
 h4 {
   font-family: var(--font-heading);
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--black);
+  letter-spacing: -0.04em;
+}
+
+/* Axiom Premium Typography */
+.display-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--black);
+}
+
+.section-head {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+  color: var(--black);
 }
 
 section {
-  padding: 120px 0;
+  padding: var(--section-padding) 0;
+  position: relative;
+  background-color: var(--white);
+}
+
+/* Premium Grain Texture */
+.premium-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Button System - Axiom Style */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem 3rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: 0.875rem;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.btn:hover::before {
+  left: 0;
+}
+
+.btn-black {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-outline-white {
+  border-color: var(--white);
+  color: var(--white);
+  background: transparent;
+}
+
+.btn-outline-white:hover {
+  background: var(--white);
+  color: var(--black);
+}
+
+.btn-outline-black {
+  border: 2px solid var(--black);
+  color: var(--black);
+  background: transparent;
+}
+
+.btn-outline-black:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-green {
+  background: var(--brand-green);
+  color: var(--white);
+}
+
+.btn-orange {
+  background: var(--brand-orange);
+  color: var(--white);
+}
+
+/* Utility Classes */
+.text-white {
+  color: var(--white);
+}
+
+.text-black {
+  color: var(--black);
+}
+
+.text-green {
+  color: var(--brand-green);
+}
+
+.text-blue {
+  color: var(--brand-blue);
+}
+
+.text-orange {
+  color: var(--brand-orange);
+}
+
+.bg-white {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.bg-light {
+  background-color: #f7f7f7;
+  color: var(--black);
+}
+
+.bg-black {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.bg-blue {
+  background-color: var(--brand-blue);
+  color: var(--white);
+}
+
+.bg-green {
+  background-color: var(--brand-green);
+  color: var(--white);
+}
+
+.bg-orange {
+  background-color: var(--brand-orange);
+  color: var(--white);
+}
+
+.opacity-70 {
+  opacity: 0.7;
+  letter-spacing: 0.01em;
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+/* Premium Shadows */
+.shadow-premium {
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.03);
+}
+
+.shadow-hover-lift {
+  transition: var(--transition);
+}
+
+.shadow-hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.06);
+}
+
+.max-600 {
+  max-width: 600px;
+}
+
+.max-800 {
+  max-width: 800px;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition: var(--transition);
 }
 
 .reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeInUp 0.8s forwards;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  border-radius: var(--radius);
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--transition);
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--white);
-}
-
-.btn-primary:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(102, 187, 27, 0.2);
-}
-
-.section-tag {
-  display: inline-block;
-  color: var(--primary);
-  font-weight: 800;
-  font-size: 0.8125rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 1rem;
-}
-
-/* Premium Grain Utility */
-.premium-grain {
-  position: relative;
-}
-
-.premium-grain::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 5;
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 2.5rem;
+  }
 }
 
 @media (max-width: 768px) {
-  h2 {
-    font-size: 2.25rem;
+  .display-title {
+    font-size: 3.5rem;
   }
 
   section {
     padding: 80px 0;
+  }
+
+  .container {
+    padding: 0 1.5rem;
   }
 }

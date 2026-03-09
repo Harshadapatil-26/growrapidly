@@ -1,21 +1,27 @@
-import React, { useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Leadership from './components/Leadership'
-import Team from './components/Team'
-import Services from './components/Services'
-import Strategy from './components/Strategy'
-import WhyChooseUs from './components/WhyChooseUs'
-import Impact from './components/Impact'
-import CTA from './components/CTA'
-import Footer from './components/Footer'
-import StrategicSupport from './components/StrategicSupport'
-import ServiceDetails from './pages/ServiceDetails'
-import WhatsAppFloating from './components/WhatsAppFloating'
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import About from './components/About';
+import Leadership from './components/Leadership';
+import Team from './components/Team';
+import Services from './components/Services';
+import Strategy from './components/Strategy';
+import WhyChooseUs from './components/WhyChooseUs';
+import Impact from './components/Impact';
+import CTA from './components/CTA';
+import Footer from './components/Footer';
+import WhatsAppFloating from './components/WhatsAppFloating';
+import ServicesPage from './pages/ServicesPage';
 
-// Component to handle scroll reveals in a multi-page context
+const ScrollToTop = () => {
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+    return null;
+};
+
 const ScrollReveal = ({ children }) => {
     const location = useLocation();
 
@@ -29,7 +35,6 @@ const ScrollReveal = ({ children }) => {
         }, { threshold: 0.1 });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
         return () => observer.disconnect();
     }, [location]);
 
@@ -38,50 +43,31 @@ const ScrollReveal = ({ children }) => {
 
 const HomePage = () => (
     <>
-        <div className="reveal"><Hero /></div>
-        <div className="reveal"><Services /></div>
-        <div className="reveal"><About /></div>
-        <div className="reveal"><Leadership /></div>
-        <div className="reveal"><Team /></div>
-        <div className="reveal"><Strategy /></div>
-        <div className="reveal"><StrategicSupport /></div>
-        <div className="reveal"><WhyChooseUs /></div>
-        <div className="reveal"><Impact /></div>
-        <div className="reveal"><CTA /></div>
+        <div id="home"><Hero /></div>
+        <div id="services"><Services /></div>
+        <div id="leadership"><Leadership /></div>
+        <div id="why-us"><WhyChooseUs /></div>
+        <div id="contact"><CTA /></div>
     </>
 );
 
 function App() {
     return (
         <Router>
+            <ScrollToTop />
             <ScrollReveal>
                 <div className="app">
+                    <Navbar />
                     <Routes>
-                        <Route path="/" element={
-                            <>
-                                <Navbar />
-                                <HomePage />
-                                <Footer />
-                            </>
-                        } />
-                        <Route path="/services/:slug" element={<ServiceDetails />} />
-                        {/* Add more routes here as needed (e.g., /about, /founder) */}
-                        <Route path="*" element={
-                            <>
-                                <Navbar />
-                                <div className="container" style={{ padding: '200px 0', textAlign: 'center' }}>
-                                    <h1>404 - Page Not Found</h1>
-                                    <p style={{ marginTop: '20px' }}>The page you're looking for doesn't exist.</p>
-                                </div>
-                                <Footer />
-                            </>
-                        } />
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/services" element={<ServicesPage />} />
                     </Routes>
+                    <Footer />
                     <WhatsAppFloating />
                 </div>
             </ScrollReveal>
         </Router>
-    )
+    );
 }
 
-export default App
+export default App;

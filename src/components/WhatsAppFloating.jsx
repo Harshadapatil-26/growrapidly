@@ -23,7 +23,7 @@ const WhatsAppFloating = () => {
                     position: fixed;
                     bottom: 40px;
                     right: 40px;
-                    background-color: #25D366;
+                    background-color: var(--primary);
                     color: white;
                     width: 60px;
                     height: 60px;
@@ -31,7 +31,7 @@ const WhatsAppFloating = () => {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+                    box-shadow: 0 10px 25px rgba(118, 184, 40, 0.3);
                     z-index: 1000;
                     transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
                     cursor: pointer;
@@ -39,8 +39,8 @@ const WhatsAppFloating = () => {
                 }
                 .whatsapp-float:hover {
                     transform: scale(1.1) translateY(-5px);
-                    box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
-                    background-color: #22c35e;
+                    box-shadow: 0 15px 30px rgba(118, 184, 40, 0.4);
+                    background-color: var(--primary-dark);
                 }
                 .whatsapp-float::before {
                     content: '';
@@ -48,7 +48,7 @@ const WhatsAppFloating = () => {
                     width: 100%;
                     height: 100%;
                     border-radius: 50%;
-                    background-color: #25D366;
+                    background-color: var(--primary);
                     opacity: 0.3;
                     z-index: -1;
                     animation: pulse-whatsapp 2s infinite;

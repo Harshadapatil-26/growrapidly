@@ -1,211 +1,385 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
-  const [scrollY, setScrollY] = useState(0);
+    return (
+        <section className="hero-v3 premium-grain" id="home">
+            <div className="hero-background">
+                <div className="hero-shapes">
+                    <div className="shape shape-1"></div>
+                    <div className="shape shape-2"></div>
+                </div>
+                <div className="hero-image-wrap">
+                    <img src="/images/backgrounds/hero_bg_v2.png" alt="Strategic Command Center" className="hero-image-main" />
+                    <div className="hero-image-overlay"></div>
+                </div>
+            </div>
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+            <div className="container hero-interface">
+                <div className="hero-branding">
+                    <div className="system-status">
+                        <span className="dot"></span>
+                        <span className="status-text text-blue">Grow Rapidly Intelligence</span>
+                    </div>
+                </div>
 
-  const images = [
-    { src: '/images/hero/campaign.png', alt: 'Political Campaign', className: 'card-1', parallax: 0.1 },
-    { src: '/images/hero/speaking.png', alt: 'Public Speaking', className: 'card-2', parallax: 0.15 },
-    { src: '/images/hero/discussion.png', alt: 'Team Discussion', className: 'card-3', parallax: 0.05 },
-    { src: '/images/hero/dashboard.png', alt: 'Digital Dashboard', className: 'card-4', parallax: 0.2 },
-    { src: '/images/hero/engagement.png', alt: 'Voter Engagement', className: 'card-5', parallax: 0.12 },
-    { src: '/images/hero/meeting.png', alt: 'Leadership Meeting', className: 'card-6', parallax: 0.08 },
-  ];
+                <div className="hero-core">
+                    <div className="message-block reveal active">
+                        <h1 className="hero-main-title">
+                            <div className="title-row">
+                                <span className="word">Strategy</span>
+                                <span className="connector">for</span>
+                                <span className="text-blue emphasis">Leaders.</span>
+                            </div>
+                            <div className="title-row">
+                                <span className="word">Growth</span>
+                                <span className="connector">for</span>
+                                <span className="text-orange emphasis">Campaigns.</span>
+                            </div>
+                            <div className="title-row">
+                                <span className="word">Impact</span>
+                                <span className="connector">for the</span>
+                                <span className="text-green emphasis">Nation.</span>
+                            </div>
+                        </h1>
 
-  return (
-    <section className="hero-modern premium-grain">
-      <div className="hero-visual-system">
-        {images.map((img, index) => (
-          <div
-            key={index}
-            className={`floating-image-card ${img.className}`}
-            style={{ transform: `translateY(${scrollY * img.parallax}px)` }}
-          >
-            <img src={img.src} alt={img.alt} />
-          </div>
-        ))}
-      </div>
-      <div className="container hero-grid">
-        <div className="hero-text-content reveal active">
-          <h1 className="hero-headline">
-            Strategy for Leaders<br />
-            <span className="text-highlight-green">Growth</span> for <span className="text-highlight-orange">Campaigns</span><br />
-            Impact for the Nation
-          </h1>
-          <p className="hero-subheadline">
-            A modern political strategy and digital marketing agency helping leaders build strong public narratives, powerful campaigns, and meaningful engagement with citizens.
-          </p>
-          <div className="hero-cta-group">
-            <a href="#start" className="btn-hero-primary">Start Your Campaign Strategy</a>
-            <a href="#services" className="btn-hero-secondary">Explore Services</a>
-          </div>
-        </div>
-      </div>
+                        <div className="hero-divider"></div>
 
-      <style>{`
-        .hero-modern {
-          background-color: var(--light-bg);
-          min-height: 80vh;
-          display: flex;
-          align-items: center;
-          padding: 120px 0 60px 0;
-          overflow: hidden;
-          position: relative;
-        }
+                        <p className="hero-lead text-black">
+                            We deliver institutional-grade political strategy.
+                            Built on data science, psychological warfare, and an unwavering commitment to victory.
+                        </p>
 
-        .hero-grid {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-align: center;
-          gap: 60px;
-          position: relative;
-          z-index: 10;
-        }
+                        <div className="hero-btns">
+                            <Link to="/services" className="btn-axiom-fill">
+                                INITIATE OPERATION
+                                <span className="btn-icon">→</span>
+                            </Link>
+                            <a href="#about" className="btn-axiom-outline">THE BLUEPRINT</a>
+                        </div>
+                    </div>
+                </div>
 
-        .hero-headline {
-          font-size: clamp(2.5rem, 5vw, 4.5rem);
-          line-height: 1.1;
-          color: var(--text);
-          font-weight: 800;
-          margin-bottom: 32px;
-          letter-spacing: -0.02em;
-        }
+                <div className="hero-footer-elements">
+                    <div className="coordinate-block">
+                        <span className="coord">28.6139° N, 77.2090° E</span>
+                        <span className="coord-label text-blue">Operational Delta</span>
+                    </div>
+                    <div className="scroll-hint">
+                        <div className="scroll-bar"></div>
+                        <span className="scroll-label">Explore Strategy</span>
+                    </div>
+                    <div className="stat-quick">
+                        <span className="stat-val text-orange">94.2%</span>
+                        <span className="stat-tag">Win Probability</span>
+                    </div>
+                </div>
+            </div>
 
-        .text-highlight {
-          color: #57B000;
-        }
+            <style>{`
+                .hero-v3 {
+                    height: 100vh;
+                    position: relative;
+                    background: var(--white);
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    padding-top: var(--header-height);
+                }
 
-        .hero-subheadline {
-          font-size: 1.25rem;
-          color: var(--text-muted);
-          line-height: 1.6;
-          max-width: 800px;
-          margin: 0 auto 48px;
-        }
+                .hero-background {
+                    position: absolute;
+                    inset: 0;
+                    z-index: 1;
+                }
 
-        .hero-cta-group {
-          display: flex;
-          gap: 20px;
-          justify-content: center;
-        }
+                .hero-shapes {
+                    position: absolute;
+                    inset: 0;
+                    z-index: 2;
+                    pointer-events: none;
+                }
 
-        .btn-hero-primary {
-          background-color: var(--primary);
-          color: var(--white);
-          padding: 18px 36px;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: 700;
-          transition: all 0.3s ease;
-          box-shadow: 0 10px 20px rgba(87, 176, 0, 0.2);
-        }
+                .shape {
+                    position: absolute;
+                    filter: blur(80px);
+                    opacity: 0.15;
+                    border-radius: 50%;
+                    animation: float 20s infinite alternate ease-in-out;
+                }
 
-        .btn-hero-primary:hover {
-          background-color: var(--accent);
-          transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(247, 126, 30, 0.3);
-        }
+                .shape-1 {
+                    width: 400px;
+                    height: 400px;
+                    background: var(--brand-blue);
+                    top: -100px;
+                    left: -100px;
+                }
 
-        .btn-hero-secondary {
-          background-color: transparent;
-          color: var(--text);
-          padding: 18px 36px;
-          border-radius: 8px;
-          text-decoration: none;
-          font-weight: 700;
-          border: 2px solid var(--border);
-          transition: all 0.3s ease;
-        }
+                .shape-2 {
+                    width: 300px;
+                    height: 300px;
+                    background: var(--brand-orange);
+                    bottom: 10%;
+                    right: 20%;
+                    animation-delay: -5s;
+                }
 
-        .btn-hero-secondary:hover {
-          background-color: var(--secondary);
-          color: var(--white);
-          border-color: var(--secondary);
-        }
+                @keyframes float {
+                    0% { transform: translate(0, 0) rotate(0deg); }
+                    100% { transform: translate(50px, 100px) rotate(30deg); }
+                }
 
-        .hero-visual-system {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: 1;
-          pointer-events: none;
-        }
+                .hero-image-wrap {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 55%;
+                    height: 100%;
+                    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+                }
 
-        .floating-image-card {
-          position: absolute;
-          border-radius: 24px;
-          overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-          animation: float 8s ease-in-out infinite;
-          background: white;
-          border: 1px solid rgba(0,0,0,0.05);
-          filter: blur(2px);
-          opacity: 0.35;
-          transition: all 0.5s ease;
-        }
+                .hero-image-main {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: grayscale(1) brightness(0.7) contrast(1.1);
+                    opacity: 1;
+                }
 
-        .floating-image-card img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-        }
+                .hero-image-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to right, var(--white) 0%, rgba(255,255,255,0.7) 30%, transparent 100%);
+                }
 
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-15px); }
-        }
+                .hero-interface {
+                    position: relative;
+                    z-index: 10;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    padding: 40px 0;
+                }
 
-        /* Responsive positioning */
-        /* Scattered background positions */
-        /* Edge-to-edge scattered background positions */
-        .card-1 { width: 500px; height: 350px; top: 0%; left: -10%; animation-delay: 0s; transform: rotate(-8deg); }
-        .card-2 { width: 550px; height: 400px; top: 10%; right: -15%; animation-delay: 1s; transform: rotate(10deg); }
-        .card-3 { width: 450px; height: 320px; bottom: -5%; left: -5%; animation-delay: 2s; transform: rotate(15deg); }
-        .card-4 { width: 420px; height: 280px; top: 35%; right: 10%; animation-delay: 1.5s; transform: rotate(-5deg); filter: blur(4px); opacity: 0.25; }
-        .card-5 { width: 480px; height: 350px; bottom: 5%; right: -5%; animation-delay: 2.5s; transform: rotate(8deg); filter: blur(3px); opacity: 0.25; }
-        .card-6 { width: 400px; height: 260px; top: 45%; left: 5%; animation-delay: 0.5s; transform: rotate(-12deg); filter: blur(5px); opacity: 0.2; }
+                .system-status {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
 
-        @media (max-width: 1024px) {
-          .hero-grid { grid-template-columns: 1fr; text-align: center; }
-          .hero-subheadline { margin: 0 auto 48px; }
-          .hero-cta-group { justify-content: center; }
-          .hero-visual-system { display: block; }
-          .card-4, .card-5, .card-6 { opacity: 0.2; }
-          .card-1, .card-2, .card-3 { width: 250px; height: 180px; }
-        }
+                .dot {
+                    width: 6px;
+                    height: 6px;
+                    background: var(--brand-green);
+                    border-radius: 50%;
+                    box-shadow: 0 0 10px var(--brand-green);
+                    animation: statusPulse 2s infinite;
+                }
 
-        @media (max-width: 768px) {
-          .hero-modern { padding: 100px 0 60px 0; }
-          .hero-headline { font-size: 2.25rem; }
-          .hero-cta-group { flex-direction: column; width: 100%; align-items: stretch; }
-          .btn-hero-primary, .btn-hero-secondary { text-align: center; }
-          .hero-visual-system { opacity: 0.5; }
-          .card-1, .card-2, .card-3 { width: 150px; height: 100px; }
-        }
+                @keyframes statusPulse {
+                    0% { opacity: 1; }
+                    50% { opacity: 0.3; }
+                    100% { opacity: 1; }
+                }
 
-        /* Fade-up animation for text */
-        .reveal.active {
-          animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
+                .status-text {
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                }
 
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </section>
-  )
-}
+                .hero-main-title {
+                    font-size: clamp(2rem, 5vw, 3.5rem);
+                    line-height: 1.1;
+                    margin-bottom: 30px;
+                }
 
-export default Hero
+                .title-row {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 0.3em;
+                    margin-bottom: 0.1em;
+                }
 
+                .connector {
+                    font-size: 0.4em;
+                    text-transform: lowercase;
+                    font-weight: 500;
+                    opacity: 0.6;
+                    font-family: var(--font-main);
+                    font-style: italic;
+                }
+
+                .emphasis {
+                    font-weight: 900;
+                }
+
+                .hero-divider {
+                    width: 120px;
+                    height: 4px;
+                    background: var(--black);
+                    margin: 40px 0;
+                }
+
+                .hero-lead {
+                    font-size: 1.25rem;
+                    max-width: 550px;
+                    line-height: 1.6;
+                    margin-bottom: 50px;
+                    opacity: 0.8;
+                }
+
+                .hero-btns {
+                    display: flex;
+                    gap: 20px;
+                }
+
+                .btn-axiom-fill {
+                    background: var(--black);
+                    color: var(--white);
+                    padding: 22px 45px;
+                    font-weight: 900;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    letter-spacing: 0.15em;
+                    font-size: 0.85rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    transition: var(--transition);
+                }
+
+                .btn-axiom-fill:hover {
+                    background: var(--brand-green);
+                    transform: translateY(-5px);
+                }
+
+                .btn-axiom-outline {
+                    border: 2px solid var(--black);
+                    color: var(--black);
+                    padding: 22px 45px;
+                    font-weight: 900;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    letter-spacing: 0.15em;
+                    font-size: 0.85rem;
+                    transition: var(--transition);
+                }
+
+                .btn-axiom-outline:hover {
+                    background: var(--black);
+                    color: var(--white);
+                }
+
+                .hero-footer-elements {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-end;
+                }
+
+                .coordinate-block {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .coord {
+                    font-size: 0.7rem;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                }
+
+                .coord-label {
+                    font-size: 0.6rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                    font-weight: 900;
+                }
+
+                .scroll-hint {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 15px;
+                }
+
+                .scroll-bar {
+                    width: 2px;
+                    height: 50px;
+                    background: rgba(0,0,0,0.1);
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .scroll-bar::after {
+                    content: '';
+                    position: absolute;
+                    top: -100%;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: var(--black);
+                    animation: scrollAnim 2s infinite;
+                }
+
+                @keyframes scrollAnim {
+                    0% { top: -100%; }
+                    100% { top: 100%; }
+                }
+
+                .scroll-label {
+                    font-size: 0.65rem;
+                    font-weight: 900;
+                    text-transform: uppercase;
+                    letter-spacing: 0.3em;
+                    writing-mode: vertical-rl;
+                }
+
+                .stat-quick {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: right;
+                }
+
+                .stat-val {
+                    font-size: 1.5rem;
+                    font-weight: 900;
+                    line-height: 1;
+                }
+
+                .stat-tag {
+                    font-size: 0.6rem;
+                    text-transform: uppercase;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    opacity: 0.6;
+                }
+
+                @media (max-width: 1024px) {
+                    .hero-image-wrap {
+                        width: 100%;
+                        clip-path: none;
+                        opacity: 0.3;
+                    }
+                    .hero-image-overlay {
+                        background: linear-gradient(to bottom, var(--white) 0%, transparent 50%, var(--white) 100%);
+                    }
+                    .hero-footer-elements {
+                        display: none;
+                    }
+                    .hero-main-title {
+                        font-size: 2.5rem;
+                    }
+                    .hero-btns {
+                        flex-direction: column;
+                    }
+                }
+            `}</style>
+        </section>
+    );
+};
+
+export default Hero;

@@ -1,157 +1,190 @@
-import React from 'react'
+import React from 'react';
 
 const Leadership = () => {
   const leaders = [
     {
       name: "Bipin M. Jagtap",
-      role: "Founder & CEO",
-      image: "/images/bipin.png",
-      bio: "A passionate political strategist and digital marketing professional focused on building strong political communication and impactful campaign strategies. With a deep understanding of digital platforms and ground-level dynamics, Bipin works to help leaders connect with people, strengthen their public image, and create meaningful political impact."
+      role: "FOUNDER & CEO",
+      img: "/images/team/bipin.png"
     },
     {
       name: "Prathamesh G. Pawar",
       role: "CMO",
-      image: "/images/prathamesh.png",
-      bio: "An expert in marketing operations and campaign management, Prathamesh drives the growth strategy for our clients. His expertise in digital engagement and audience segmentation ensures that every message reaches the right person at the right time, maximizing impact and conversion for political growth."
+      img: "/images/team/prathamesh.png"
     }
-  ]
+  ];
 
   return (
-    <section id="leadership" className="leadership-section">
+    <section id="leadership" className="leadership premium-grain">
       <div className="container">
-        <div className="section-header reveal">
-          <span className="section-tag">The Leadership</span>
-          <h2 className="section-title">Driving Growth & Strategy</h2>
-          <p className="section-subtitle">Meet the visionaries behind Grow Rapidly who are redefining political communication.</p>
+        <div className="leadership-top reveal text-center">
+          <h2 className="display-title">
+            OUR <span className="text-green">STRATEGIC</span> BOARD
+          </h2>
+          <p className="text-black opacity-70 max-800 mx-auto">
+            Experienced advisors navigating the intersection of technology,
+            narrative, and political mobilization.
+          </p>
         </div>
 
-        <div className="leadership-grid">
+        <div className="leadership-grid reveal">
           {leaders.map((leader, index) => (
-            <div key={index} className="leader-card reveal">
-              <div className="leader-img-area">
-                <div className="img-frame">
-                  <img src={leader.image} alt={leader.name} className="leader-img" />
-
-                </div>
+            <div key={index} className="leader-card">
+              <div className="leader-img-frame">
+                <img src={leader.img} alt={leader.name} className="leader-img" />
+                <div className="leader-accent bg-green"></div>
               </div>
-              <div className="leader-text-area">
-                <h3 className="leader-name">{leader.name}</h3>
-                <span className="leader-role">{leader.role}</span>
-                <p className="leader-bio">{leader.bio}</p>
-                <div className="leader-socials">
-                  <a href="#" className="s-link">LinkedIn</a>
-                  <a href="#" className="s-link">Twitter</a>
+              <div className="leader-info">
+                <h3 className="leader-name text-black">{leader.name}</h3>
+                <p className="leader-role text-green">{leader.role}</p>
+                <div className="leader-social">
+                  <span className="social-icon">IN</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        <div className="leadership-mission reveal">
+          <div className="mission-stats">
+            <div className="m-stat">
+              <span className="m-val text-green">24/7</span>
+              <span className="m-label">Strategic Support</span>
+            </div>
+            <div className="m-stat">
+              <span className="m-val text-blue">94%</span>
+              <span className="m-label">Voter Engagement</span>
+            </div>
+          </div>
+        </div>
       </div>
+
       <style>{`
-        .leadership-section {
-          background-color: var(--white);
-          padding: 120px 0;
-        }
-        .section-header {
-          text-align: center;
-          margin-bottom: 80px;
-          max-width: 800px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-        .section-title {
-          font-size: 3rem;
-          margin-bottom: 1.5rem;
-          color: var(--text);
-        }
-        .section-subtitle {
-          font-size: 1.25rem;
-          color: var(--text-muted);
-        }
-        .leadership-grid {
-          display: flex;
-          flex-direction: column;
-          gap: 120px;
-        }
-        .leader-card {
-          display: grid;
-          grid-template-columns: 0.8fr 1.2fr;
-          gap: 80px;
-          align-items: center;
-        }
-        .leader-card:nth-child(even) {
-          direction: rtl;
-        }
-        .leader-card:nth-child(even) .leader-text-area {
-          direction: ltr;
-          text-align: left;
-        }
-        .img-frame {
-          position: relative;
-        }
-        .leader-img-area {
-          max-width: 400px;
-          margin: 0 auto;
-        }
-        .leader-img {
-          width: 100%;
-          aspect-ratio: 4 / 5;
-          border-radius: 32px;
-          box-shadow: var(--shadow-md);
-          display: block;
-          object-fit: cover;
-          object-position: center 20%;
-        }
+                .text-center { text-align: center; }
+                .mx-auto { margin-left: auto; margin-right: auto; }
 
+                .leadership {
+                    padding: var(--section-padding) 0;
+                    background: var(--white);
+                }
 
-        .leader-name {
-          font-size: 2.5rem;
-          margin-bottom: 0.5rem;
-          color: var(--text);
-        }
-        .leader-role {
-          display: block;
-          font-size: 1.25rem;
-          color: var(--primary);
-          font-weight: 700;
-          margin-bottom: 2rem;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-        .leader-bio {
-          font-size: 1.125rem;
-          line-height: 1.8;
-          color: var(--text-muted);
-          margin-bottom: 2.5rem;
-        }
-        .leader-socials {
-          display: flex;
-          gap: 30px;
-        }
-        .s-link {
-          text-decoration: none;
-          color: var(--text);
-          font-weight: 700;
-          font-size: 0.9375rem;
-          transition: var(--transition);
-        }
-        .s-link:hover { color: var(--primary); }
+                .leadership-top {
+                    margin-bottom: 100px;
+                }
 
-        @media (max-width: 992px) {
-          .leader-card { grid-template-columns: 1fr; gap: 40px; }
-          .leader-card:nth-child(even) { direction: ltr; }
-          .section-title { font-size: 2.5rem; }
-          .leader-name { font-size: 2rem; }
-        }
-        @media (max-width: 480px) {
-          .section-title { font-size: 2rem; }
-          .leader-name { font-size: 1.75rem; }
-          .leadership-grid { gap: 80px; }
-          .leader-img-area { width: 100%; max-width: 300px; }
-        }
-      `}</style>
+                .leadership-top h2 {
+                    font-size: clamp(2.5rem, 6vw, 4.5rem);
+                }
+
+                .leadership-grid {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 60px;
+                    max-width: 1000px;
+                    margin: 0 auto 100px;
+                }
+
+                .leader-card {
+                    text-align: center;
+                }
+
+                .leader-img-frame {
+                    position: relative;
+                    margin-bottom: 30px;
+                }
+
+                .leader-img {
+                    width: 100%;
+                    aspect-ratio: 1/1;
+                    object-fit: cover;
+                    filter: grayscale(1) contrast(1.1) brightness(1.1);
+                    border: 1px solid rgba(0,0,0,0.05);
+                    transition: var(--transition);
+                }
+
+                .leader-card:hover .leader-img {
+                    filter: grayscale(0);
+                    transform: scale(1.02);
+                }
+
+                .leader-accent {
+                    position: absolute;
+                    bottom: -10px;
+                    right: -10px;
+                    width: 60px;
+                    height: 60px;
+                    z-index: -1;
+                    opacity: 0.1;
+                }
+
+                .leader-name {
+                    font-size: 1.5rem;
+                    margin-bottom: 5px;
+                    letter-spacing: 0.02em;
+                }
+
+                .leader-role {
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 0.2em;
+                    margin-bottom: 20px;
+                }
+
+                .leader-social {
+                    display: flex;
+                    justify-content: center;
+                }
+
+                .social-icon {
+                    width: 24px;
+                    height: 24px;
+                    border: 1px solid rgba(0,0,0,0.1);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 0.6rem;
+                    font-weight: 900;
+                    color: rgba(0,0,0,0.4);
+                }
+
+                .mission-stats {
+                    display: flex;
+                    justify-content: center;
+                    gap: 100px;
+                    padding-top: 80px;
+                    border-top: 1px solid rgba(0,0,0,0.05);
+                }
+
+                .m-stat {
+                    text-align: center;
+                }
+
+                .m-val {
+                    display: block;
+                    font-size: 3rem;
+                    font-weight: 900;
+                    font-family: var(--font-heading);
+                    line-height: 1;
+                    margin-bottom: 10px;
+                }
+
+                .m-label {
+                    font-size: 0.75rem;
+                    font-weight: 800;
+                    text-transform: uppercase;
+                    letter-spacing: 0.15em;
+                    opacity: 0.6;
+                }
+
+                @media (max-width: 768px) {
+                    .leadership-grid { grid-template-columns: 1fr; gap: 40px; }
+                    .mission-stats { gap: 40px; flex-direction: column; }
+                }
+            `}</style>
     </section>
-  )
-}
+  );
+};
 
-export default Leadership
+export default Leadership;
